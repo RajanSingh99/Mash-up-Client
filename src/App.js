@@ -1,24 +1,29 @@
 import './App.css';
-import ParticlesBg from 'particles-bg'
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { Routes } from 'react-router';
+
 import Login from './login';
 import Navbar from './Navbar.js';
+import LoginPage from './components/loginPage';
+import Background from './background';
+import Home from './Home';
+import Signup from './components/signUp';
 
 function App() {
   return (
-    <div className="App">
-      <ParticlesBg color="#166D3B" type="cobweb" bg={true} />
-      <div className="Header">
-        <h1>Mash<span className="span">UP</span></h1>
-        <Navbar/>
-      </div>
-      <div className="body">
-        <Login/>
-        <div className="body-text">
-          <h1><span style={{color:"#166D3B",fontSize:100}}>One</span> Destination for all your entertainment Needs!</h1>
-          <h2>starting at just<span style={{fontSize:100}}>₹</span> <span style={{color:"#166D3B",fontSize:100}}>79</span> per month</h2>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/'element={<Home />} />
+        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+      </Routes>
+    </Router>
   );
 }
 

@@ -31,6 +31,7 @@ const Login = () => {
             <Input
             className="login-form"
             id="input-with-icon-adornment"
+            type="Password"
             placeholder="Password"
             startAdornment={
                 <InputAdornment position="start">
