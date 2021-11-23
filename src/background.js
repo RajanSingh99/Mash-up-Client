@@ -1,10 +1,9 @@
-import React from 'react'
-import ParticlesBg from 'particles-bg'
+import React from "react";
+import ParticlesBg from "particles-bg";
 
 export default function Background(props) {
-    
-
-    return (
-        <ParticlesBg color="#166D3B" type="cobweb" bg={true} />
-    )
+  return (
+    <div></div>
+    // <ParticlesBg color="#166D3B" type="cobweb" bg={true} />
+  );
 }
