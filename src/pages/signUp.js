@@ -1,17 +1,21 @@
 import React from 'react'
 import { Grid, Paper, Avatar, Typography, TextField, Button } from '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { useState } from "react";
+
+
+
 const Signup = () => {
     const paperStyle = { padding: '30px 20px', width: 300, margin: "20px auto" }
-    const headerStyle = { margin: 0 }
+    const headerStyle = { margin: 0, color:"black" }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const marginTop = { marginTop: 5 }
+    const [userName,setUserName]=useState();
+    const [email,setEmail]=useState();
+    const [password,setPassword]=useState();
+    const [confirmPassword,setConfirmPassword]=useState() ;
+
     return (
         <Grid>
             <Paper elevation={20} style={paperStyle}>
@@ -23,21 +27,19 @@ const Signup = () => {
                     <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
                 </Grid>
                 <form>
-                    <TextField fullWidth label='Name' placeholder="Enter your name" />
-                    <TextField fullWidth label='Email' placeholder="Enter your email" />
-                    <FormControl component="fieldset" style={marginTop}>
-                        <FormLabel component="legend">Gender</FormLabel>
-                        <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
-                            <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </FormControl>
-                    <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
-                    <TextField fullWidth label='Password' placeholder="Enter your password"/>
-                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/>
+                    <TextField fullWidth label='UserName' placeholder="Enter Username" value={userName} onChange={(event) => {
+                        setUserName(event.target.value);}} required />
+                    <TextField fullWidth label='Email' placeholder="Enter your email" value={email} onChange={(event) => {
+                        setEmail(event.target.value);}} required/>
+                    
+                    <TextField fullWidth label='Password' placeholder="Enter your password" value={password} onChange={(event) => {
+                        setPassword(event.target.value);}} required/>
+                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"value={confirmPassword} onChange={(event) => {
+                        setConfirmPassword(event.target.value);}}required/>
                     <FormControlLabel
                         control={<Checkbox name="checkedA" />}
                         label="I accept the terms and conditions."
+                        required="required"
                     />
                     <Button type='submit' variant='contained' color='primary'>Sign up</Button>
                 </form>
