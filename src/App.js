@@ -5,23 +5,32 @@ import {
   Switch,
   Route,
   Routes,
-  Link,
+  Navigate,
 } from "react-router-dom";
 
 import Login from "./login";
 import Navbar from "./Navbar.js";
-import LoginPage from "./pages/loginPage";
+import LoginPage from "./pages/LoginPage";
 import Background from "./background";
 import Home from "./Home";
-import Signup from "./pages/signUp";
+import Signup from "./pages/SignUp";
+import auth from "./services/auth";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/login"
+          element={
+            auth.isLoggedIn() ? <Navigate replace to="/" /> : <LoginPage />
+          }
+        />
+        <Route
+          path="/signup"
+          element={auth.isLoggedIn() ? <Navigate replace to="/" /> : <Signup />}
+        />
       </Routes>
     </Router>
   );
