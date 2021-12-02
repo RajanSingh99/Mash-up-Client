@@ -7,6 +7,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from "./login";
 import Navbar from "./Navbar.js";
@@ -15,6 +16,7 @@ import Background from "./background";
 import Home from "./Home";
 import Signup from "./pages/SignUp";
 import auth from "./services/auth";
+import Homepage from "./pages/HomePage";
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
           path="/signup"
           element={auth.isLoggedIn() ? <Navigate replace to="/" /> : <Signup />}
         />
+        <Route path={"/home"} element={<Homepage/>} />
       </Routes>
+      
     </Router>
   );
 }

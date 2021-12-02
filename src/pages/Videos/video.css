@@ -1,8 +1,11 @@
 @import url('http://fonts.cdnfonts.com/css/penna');
 @import url('http://fonts.cdnfonts.com/css/helsinki');
 
+@import url('http://fonts.cdnfonts.com/css/penna');
+@import url('http://fonts.cdnfonts.com/css/helsinki');
+
 body{
-  background-color: black;
+  background-color: white;
   height: 100vh;
   width: 100%;
 
@@ -88,37 +91,4 @@ body{
 
 .body-text h1,h2{
   color: white;
-}
-
-.Header-Home h1{
-  font-family: 'Penna', sans-serif;
-  color: rgba(99,212,113, 0.6);
-  outline: pink;
-  font-size: 100px;
-  width: 350px;
-  height: 100px;
-  background-color: rgba(0,0,0,0.8);
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  margin: 0;
-  margin-left: -30px;
-  padding: 0;
-}
-
-.content-home{
-  display: flex;
-  width: 100vw;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-  top: 300px;
-  padding-left: 100px;
-  padding-right: 100px;
-
-}
-.movie{
-  display: flex;
-  width: 200px;
-  height: 300px
 }

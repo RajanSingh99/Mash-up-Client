@@ -14,14 +14,34 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Background from "../background";
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import auth from "../services/auth";
+
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let history = useNavigate();
+
+  const handleOnClick= async(e)=>{
+    e.preventDefault();
+    axios.post("http://localhost:5000/signin",{
+      username: username,
+      password: password}
+  ).then((response)=>{
+      if(response.data.token){
+        auth.login(response.data.token);
+        console.log("done");
+        history('/');
+      }else
+      console.log(response.data.token)
+  })
+  }
 
   const paperStyle = {
     padding: 20,
-    height: "500px",
+    height: "350px",
     width: 280,
     margin: "20px auto",
   };
@@ -77,20 +97,20 @@ const LoginPage = () => {
           label="Remember me"
         />
         <Button
-          type="submit"
           color="primary"
           variant="contained"
           style={btnstyle}
           fullWidth
+          onClick={handleOnClick}
         >
           Sign in
         </Button>
         <Typography>
-          <Link href="#">Forgot password ?</Link>
+          <Link href="#">   </Link>
         </Typography>
-        <Typography>
+        <Typography style={{paddingTop: "5px"}}>
           {" "}
-          Do you have an account ?<Link href="#">Sign Up</Link>
+          Do you have an account ?<Link href="/signup">Sign Up</Link>
         </Typography>
       </Paper>
     </Grid>

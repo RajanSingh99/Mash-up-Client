@@ -90,7 +90,7 @@ body{
   color: white;
 }
 
-.Header-Home h1{
+/* .Header-Home h1{
   font-family: 'Penna', sans-serif;
   color: rgba(99,212,113, 0.6);
   outline: pink;
@@ -121,4 +121,4 @@ body{
   display: flex;
   width: 200px;
   height: 300px
-}
+} */
